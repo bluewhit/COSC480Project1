@@ -87,7 +87,60 @@ public class Project1 {
 			
 		}//end for 
 		
-	}//end create tree 
+	}//end create tree
+	
+	
+	//ref- from user
+	//comp- found
+	public void mutationCheck(StringBuilder ref, StringBuilder comp){
+		
+		int score=0;
+		
+		//checks if there are mutations
+		if(ref.toString().equals(comp.toString())){
+			//prints following if there are no mutations
+			System.out.println("Gene: "+ comp.toString()+ " was found in position ");
+			System.out.println("Mutation Found: No mutations.");
+			System.out.println("Score: N/A.");
+		}else{
+			//if point mutation
+			
+			for(int i=0; i<ref.length(); i++){
+				if(comp.charAt(i)!=ref.charAt(i)){
+					score--;
+				}//end if
+			}//end for
+			
+			System.out.println("Gene: "+ comp.toString()+ " was found in position ");
+			System.out.println("Mutation Found: Point Mutation");
+			System.out.println("Score: "+ score);
+			
+			
+			//if insertion
+			for(int i=0; i<comp.length(); i++){
+				if(ref.charAt(i)=='-'){
+					score--;
+				}//end if
+			}//end for
+			
+			System.out.println("Gene: "+ comp.toString()+ " was found in position ");
+			System.out.println("Mutation Found: Insertion");
+			System.out.println("Score: "+ score);
+			
+			//if deletion
+			
+			for(int i=0; i<ref.length(); i++){
+				if(comp.charAt(i)=='-'){
+					score--;
+				}//end if
+			}//end for
+			
+			System.out.println("Gene: "+ comp.toString()+ " was found in position ");
+			System.out.println("Mutation Found: Deletion");
+			System.out.println("Score: "+ score);
+		}//end if/else
+		
+	}//end mutationCheck
 	
 	
 	

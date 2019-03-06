@@ -175,29 +175,29 @@ public class Project1 {
 		if(c.length() > f.length()) {
 			System.out.println("Searching for insertions...");
 			
-			String comp = c; 
 			
-			int lengthStr = comp.length() - f.length();
+			int lengthStr = c.length() - f.length();
 			
-			for(int i = 0; i <= lengthStr; i++) {
-				f = f + "-";
-			}//end for 
+			System.out.println("f " + f);
+			System.out.println("c " + c);
 			
-			System.out.println(f);
-			System.out.println(c);
-			
-			StringBuilder newf = new StringBuilder(f);
-			for(int i = 0; i < newf.length(); i++) {
-				if(comp.charAt(i) == newf.charAt(i)) {
+			StringBuilder comp = new StringBuilder(c);
+			for(int i = 0; i < comp.length(); i++) {
+				if(comp.charAt(i) == f.charAt(i)) {
 					score++; 
 				}
 				else {
-					newf.deleteCharAt(i);
 					
+					System.out.println(comp);
+					comp.deleteCharAt(i);
+					System.out.println(comp);
+					score--;
 				}
 			}
 			
-			System.out.println(newf);
+			System.out.println("f\n" + f);
+			System.out.println("comp\n" + comp);
+			System.out.println("Mutation Found: Insertion\nScore: "+ score);
 			
 		}
 		else if(c.length() < f.length()) {
@@ -229,6 +229,7 @@ public class Project1 {
 			}//end for 
 			comp = comp.substring(0, comp.length() - lengthStr-1);
 			System.out.println(comp);
+			System.out.println("Mutation Found: Deletion\nScore: "+ score);
 			
 		}
 		else if(c.length() == f.length()){

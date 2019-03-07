@@ -1,59 +1,90 @@
 import java.util.ArrayList;
-import java.util.List;
 
-//https://stackoverflow.com/questions/19330731/tree-implementation-in-java-root-parents-and-children
-public class Node<String> {
+class Node {
 	
-    private List<Node<String>> children = new ArrayList<Node<String>>();
-    private Node<String> parent = null;
-    private String data = null;
+    private String seq;
+    private Node a;
+    private Node c;
+    private Node g; 
+    private Node t; 
+    
+    //constructor takes in seq, null for all
+    //gets and sets for all 
+    
+    ArrayList<Node> childa = new ArrayList(); 
+    ArrayList<Node> childC = new ArrayList();
+    ArrayList<Node> childT = new ArrayList();
+    ArrayList<Node> childG = new ArrayList();
+    
+    public Node(String s) {
+    	
+    	seq = s; 
+    	a = null;
+    	c = null;
+    	g = null;
+    	t = null; 
+    	childa = new ArrayList(); 
+    	
+    }//end constructor 
 
-    public Node(String data) {
-        this.data = data;
-    }
+	public String getSeq() {
+		return seq;
+	}
 
-    public Node(String data, Node<String> parent) {
-        this.data = data;
-        this.parent = parent;
-    }
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
 
-    public List<Node<String>> getChildren() {
-        return children;
-    }
+	public Node getA() {
+		return a;
+	}
 
-    public void setParent(Node<String> parent) {
-        parent.addChild(this);
-        this.parent = parent;
-    }
+	public void setA(Node a) {
+		this.a = a;
+	}
 
-    public void addChild(String data) {
-        Node<String> child = new Node<String>(data);
-        child.setParent(this);
-        this.children.add(child);
-    }
+	public Node getC() {
+		return c;
+	}
 
-    public void addChild(Node<String> child) {
-        child.setParent(this);
-        this.children.add(child);
-    }
+	public void setC(Node c) {
+		this.c = c;
+	}
 
-    public String getData() {
-        return this.data;
-    }
+	public Node getG() {
+		return g;
+	}
 
-    public void setData(String data) {
-        this.data = data;
-    }
+	public void setG(Node g) {
+		this.g = g;
+	}
 
-    public boolean isRoot() {
-        return (this.parent == null);
-    }
+	public Node getT() {
+		return t;
+	}
 
-    public boolean isLeaf() {
-        return this.children.size() == 0;
-    }
-
-    public void removeParent() {
-        this.parent = null;
-    }
+	public void setT(Node t) {
+		this.t = t;
+	}
+	
+	public String toString() {
+		return seq; 
+	}
+	
+	public void addChild(Node n) {
+		childa.add(n); 
+	}
+	
+	public void addChildC(Node n) {
+		childC.add(n); 
+	}
+	
+	public void addChildT(Node n) {
+		childT.add(n); 
+	}
+	
+	public void addChildG(Node n) {
+		childG.add(n); 
+	}
+    
 }
